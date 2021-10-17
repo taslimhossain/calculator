@@ -1,0 +1,428 @@
+.tdformarea select {
+  width: 100%;
+  padding: 10px;
+}
+.total_amount {
+  font-size: 24px;
+  font-weight: 600;
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  z-index: 9999;
+  background: #333;
+  padding: 10px 20px;
+  color: #ffff;
+}
+
+.td-accordion {
+  font-size: 20px;
+  padding-left: 20px;
+  border-radius: 0px;
+  margin-top: 20px;
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  background-color: #fff;
+  box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 50%);
+  border: 1px solid #333;
+}
+
+.td-accordion:hover {
+  color: #333;
+  background: #f6f6f6;
+  cursor: pointer;
+}
+/*.td-accordion:hover:after {
+  border-top: 12px #ffffff solid;
+}
+*/
+
+.tda-inactive:after {
+  position: absolute;
+  content: "";
+  border-top: 10px #888 solid;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  right: 22px;
+  top: 40%;
+  /* transform: translatey(-6px); */
+}
+
+.tda-active:after {
+  position: absolute;
+  content: "";
+  border-bottom: 12px #888 solid;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  right: 22px;
+  top: 45%;
+  /* transform: translatey(-6px); */
+}
+
+.td-accordiondata {
+  background: #f6f6f6;
+  border-radius: 0px;
+  padding: 10px 20px 20px 20px;
+  margin-top: 10px;
+}
+
+.basic-pakage {
+  margin-bottom: 20px;
+}
+
+.bp-row {
+  position: relative;
+}
+
+.bp-title, .bp-price {
+  position: absolute;
+}
+.bp-title {
+  left: 0px;
+  font-size: 18px;
+  font-weight: 600;  
+}
+
+.bp-price {
+  right: 30px;
+}
+
+.bp-row:first-child {
+  height: 35px;
+}
+.bp-row:last-child {
+  border-top: 1px solid #333;
+}
+.bp-row p {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* checkbox */
+/* The container */
+.tdcheckbox {
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.tdcheckbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+span.bp-cost {
+  height: 25px;
+  line-height: 25px;
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ffffff;
+}
+
+/* On mouse-over, add a grey background color */
+.tdcheckbox:hover input ~ .checkmark {
+  background-color: #ffffff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.tdcheckbox input:checked ~ .checkmark {
+  background-color: #333;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.tdcheckbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.tdcheckbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* checkbox */
+.single-checkout {
+  display: block;
+  margin: 15px 0px;
+}
+.single-checkout .checkmark {
+  top: 0px;
+}
+span.ctitle {
+  margin-left: 40px;
+}
+
+.td-select-city {
+  margin-bottom: 12px;
+}
+.select-date input.form-control {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+span.poem-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+p:empty {
+  display: none;
+}
+
+h4.title:empty {
+  display: none;
+}
+.tdpoemarea {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tdcheckbox p{
+  padding: 0px;
+  padding-bottom: 15px;
+}
+
+label.tdselectpoem {
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+}
+
+.tdselectpoem span.checkmark {
+  position: absolute;
+  right: 0px !important;
+  left: unset;
+  visibility: hidden;
+  border-radius: 50px;
+}
+.tdselectpoem input:checked ~ .checkmark {
+  background-color: #af5801;
+  visibility: hidden;
+}
+.tdselectstatus {
+  background-color: #eaeaea;
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  width: 164px;
+  color: #333333;
+  margin: auto;
+  padding: 3px;
+  transition: .1s background-color linear;
+}
+.tdselectpoem input:checked ~ .tdselectstatus {
+  background-color: #333333;
+  color: #ffffff;
+}
+.tda-active {
+  background: #f6f6f6;
+}
+
+span.tdselectstatus {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin-top: 10px;
+}
+
+.kies {
+  display: none;
+}
+.keuze {
+  display: block;
+}
+.tdselectpoem input:checked ~ .kies {
+  display: block;
+}
+.tdselectpoem input:checked ~ .keuze {
+  display: none;
+}
+p.tdimges {
+  font-size: 18px;
+  padding: 10px;
+  display: block;
+  margin-bottom: 0;
+  padding-bottom: 0px;
+}
+p.tdimges {
+  font-weight: 600;
+}
+/* freeloader */
+#tdformloader {
+  position: fixed;
+  top: 50%;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: none;
+}
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #f6f6f6;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.select-date input.form-control {
+  padding: 8px;
+  border-radius: 0px;
+}
+.td-formfixedfield .select2-container--default .select2-selection--single {
+  border-radius: 0px;
+  height: 40px;
+  padding: 4px;
+  border: 1px solid #000;
+}
+.tdformsubmitbtn {
+  display: inline-block;
+  float: right;
+  margin-top: 20px;
+}
+
+.tdformsubmitbtn input#preview-button, .tdformsubmitbtn #checkout-button {
+  font-size: 20px;
+  background: #000;
+  padding: 15px 60px;
+}
+.tdformsubmitbtn input#preview-button:hover, .tdformsubmitbtn #checkout-button:hover {
+  background: #f6f6f6;
+  color: #333;
+}
+label.imageuplad {
+  background: #333;
+  color: #fff;
+  padding: 5px 15px;
+  display: block;
+  border-radius: 25px;
+  cursor:pointer;
+}
+label.imageuplad:hover {
+  background: #333;
+}
+label.imageuplad {
+  display: flex;
+  margin-bottom: 40px;
+  width: 150px;
+  margin-left: 20%;
+  justify-content: center;
+}
+label.imageuplad span {
+  margin-left: 10px;
+}
+.tdcustompoem {
+  margin-top: 20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #333;
+}
+.tddateselect {
+/*   padding: 0px 10px !important; */
+  margin-bottom: 15px;
+}

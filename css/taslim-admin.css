@@ -1,0 +1,249 @@
+.taslim-formbuilder{}
+.taslim-formbuilder .widget-liquid-left{
+    width: 20%;
+}
+.taslim-formbuilder .widget-liquid-right{
+    width: 80%;
+}
+
+table.table.table-striped.taslim-table {
+  width: 100%;
+}
+
+#taslim-sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+
+#taslim-sortable {
+  padding: 10px;
+  background-color: #f7f9fa;
+  box-sizing: border-box;
+}
+.placeholder {
+    width: 100%;
+    background-color: #007cba !important;
+    border: 1px dashed #666;
+    margin-bottom: 5px;
+}
+
+.form-fields li a {}
+
+ul#form-fields li a {
+    width: 100%;
+}
+
+ul#form-fields {
+    padding: 0px 15px 0px 0px;
+    margin-top: 0px;
+}
+
+/* --------- */
+.taslim-row {
+    clear: both;
+}
+.taslim-row:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+.taslim-left {
+    float: left;
+}
+.taslim-right {
+    float: right;
+}
+
+.box-header {
+  background: #fff;
+  border: 1px solid #dfdfe2;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+.taslim-row.fieldelement {
+  margin-top: 10px;
+  padding: 10px;
+  background: #eaedf0;
+  margin-bottom: 8px!important;
+  border-radius: 5px;
+}
+
+.remvoe-field {
+  color: #ef5350 !important;
+  background: #ffebee !important;
+  border-color: #ffebee !important;
+  line-height: 22px !important;
+}
+
+/*.taslim-field {
+    background: #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+}*/
+
+.taslim-formbuilder input[type=color],
+.taslim-formbuilder input[type=date],
+.taslim-formbuilder input[type=datetime-local],
+.taslim-formbuilder input[type=datetime],
+.taslim-formbuilder input[type=email],
+.taslim-formbuilder input[type=month],
+.taslim-formbuilder input[type=number],
+.taslim-formbuilder input[type=password],
+.taslim-formbuilder input[type=search],
+.taslim-formbuilder input[type=tel],
+.taslim-formbuilder input[type=text],
+.taslim-formbuilder input[type=time],
+.taslim-formbuilder input[type=url],
+.taslim-formbuilder input[type=week],
+.taslim-formbuilder select,
+.taslim-formbuilder textarea {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 11px 20px;
+  background: #fff;
+  font-size: 13px;
+  color: #23282d;
+  text-align: left;
+  border: 1px solid #dfdfe2;
+  border-radius: 5px;
+  box-shadow: none;
+  width: 100%;
+  font-weight: 400;
+  line-height: 18px;
+  height: auto;
+}
+
+.collapse-btn {
+  background: #eeeeef !important;
+  border-color: #eeeeef !important;
+  color: #1e88e5 !important;
+  border-radius: 100% !important;
+  height: 30px;
+  width: 30px;
+  padding: 0px !important;
+  padding-top: 3px !important;
+}
+.collapse-btn:focus, .remvoe-field:focus {
+  box-shadow: none !important;
+}
+a.button-hero {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #1e88e5 !important;
+  padding: 2px 20px !important;
+  background: rgba(132,148,171,.1) !important;
+  border: none !important;
+  box-shadow: none;
+  border-radius: 50px !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  text-decoration: none !important;
+}
+.fieldelement {
+    display: none;
+}
+.taslim-field {
+  margin-bottom: 10px;
+}
+
+/* checkbox */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  margin-top: 25px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+span.label {
+    position: absolute;
+    width: 400px;
+    top: -25px;
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 5px;
+    background-color: #fff;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+.table.table-striped.taslim-table tr {
+  vertical-align: top !important;
+}
+.form-add-row, .remove-row {
+  padding: 5px 15px !important;
+}
+
+
+.tdcitylist, .tdkistlist {
+  background: #fff;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.tdcitylist input[type=text], .tdkistlist input[type=text] {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+
+.tdcitylist td, .tdcitylist th {
+  border: 1px solid #c5c5c5;
+  padding: 5px;
+}
+.tdcitylist th, .tdkistlist th {
+  padding-bottom: 10px;
+}
+.condition-table {
+  display: block;
+  width: 100%;
+  background: #e2e2e2;
+  padding: 10px;
+}
