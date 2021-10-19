@@ -15,8 +15,8 @@ if ( ! defined( 'WPINC' ) ) {
     die;
 }
 
-define( 'PRODUCTID', 31 );
-//define( 'PRODUCTID', 69 );
+//define( 'PRODUCTID', 31 ); local server
+define( 'PRODUCTID', 69 );
 define( 'CITYPRICEONE', 'transport' );
 define( 'CITYPRICETWO', 'begraving' );
 define( 'CITYCREMATIE', 'crematie' );
@@ -370,4 +370,3 @@ add_action('template_redirect', function(){
         exit;
 	}
 });
-

@@ -180,18 +180,18 @@
         console.log(data);
         $('#tdformloader').show();
         $.post(taslimAjax.ajaxurl, data, function(response) {
-            if (response.success) {
+            if (response) {
             	$('#tdformloader').hide();
-                console.log(response);
-				//const linkSource = `data:application/pdf;base64,${response.data.message.file}`;
-                const downloadLink = document.createElement("a");
-                const fileName = "funeral-"+ Date.now() +".pdf";
-                downloadLink.href = response.data.message;
-				downloadLink.target = '_blank';
-               // downloadLink.download = fileName;
-                downloadLink.click();
-				
-               // $('.happytaslim_be_popup_form_content').html(response.data.message)
+				const tdinvoice = document.getElementById('tdinvoice');
+				tdinvoice.innerHTML = response;
+
+            //     const downloadLink = document.createElement("a");
+            //     const fileName = "funeral-"+ Date.now() +".pdf";
+            //     downloadLink.href = response.data.message;
+			// 	downloadLink.target = '_blank';
+            //    // downloadLink.download = fileName;
+            //     downloadLink.click();
+
             } else {
                 alert(response.data.message);
             }

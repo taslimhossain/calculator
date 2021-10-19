@@ -380,8 +380,7 @@ p.tdimges {
   border: 1px solid #000;
 }
 .tdformsubmitbtn {
-  display: inline-block;
-  float: right;
+  text-align: right;
   margin-top: 20px;
 }
 
@@ -425,4 +424,46 @@ label.imageuplad span {
 .tddateselect {
 /*   padding: 0px 10px !important; */
   margin-bottom: 15px;
+}
+
+/* --------- */
+div#tdinvoice {
+  /* max-width: 900px; */
+  margin-top: 15px;
+}
+
+.tdw-50 {
+  width: 50%;
+}
+.tdinvoice table th {
+  font-size: 14px;
+}
+.tdinvoice_preview {
+  background: #fff;
+  padding: 15px;
+  font-size: 16px;
+  border: 10px solid #222;
+}
+ul.tdinvoice-topinfo {
+  list-style: none;
+  padding-left: 15px;
+}
+
+ul.tdinvoice-topinfo li span {
+  width: 200px;
+  display: inline-block;
+}
+
+h4.tdinvoice_heading {
+  border-bottom: 1px solid #aaa;
+  font-size: 18px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.tdmt-15 {
+  margin-top:15px;
+}
+.tdinvoice table, .tdinvoice table td, .tdinvoice table th {
+  border: 0px;
+  padding: 0px;
 }

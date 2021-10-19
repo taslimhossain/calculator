@@ -64,11 +64,15 @@ function callback_td_from_previw() {
         $kistprice = isset( $_REQUEST[KIST] ) ? (float) sanitize_text_field( $_REQUEST[KIST] ) : (float) 0;   
         $alldata = $_REQUEST;
         $price_field = [];
+        $newprice_field = [];
 
         foreach ($alldata as $key => $value) {
             $price_fields = get_price_value($value, $key, $formfor);
             if (!empty($price_fields)) {
                 $price_field[] = $price_fields;
+                $childlist = [];
+                //$childlist[$price_fields['name']] = $price_fields;
+                $newprice_field[$price_fields['name']][] = $price_fields;
             }
         }
 
@@ -83,9 +87,12 @@ function callback_td_from_previw() {
             }
         }
 
-        wp_send_json_success( [
-            'message' => taslim_generatePdf( 'taslim', $price_field, $alldata ),
-        ] );
+        echo td_generateinvoice( $newprice_field, $alldata );
+        die();
+
+        // wp_send_json_success( [
+        //     'message' => td_generateinvoice( $price_field, $alldata ),
+        // ] );
 
         wp_send_json_error( [
             'message' => 'Sorry something wrong!',
@@ -105,6 +112,7 @@ function callback_td_from_checkout() {
         $formfor = isset( $_REQUEST['formfor'] ) ? sanitize_text_field( $_REQUEST['formfor'] ) : 'begraving';
         $citypriceOne = isset( $_REQUEST[CITYPRICEONE] ) ? sanitize_text_field( $_REQUEST[CITYPRICEONE] ) : 0;
         $citypriceTwo = isset( $_REQUEST[CITYPRICETWO] ) ? sanitize_text_field( $_REQUEST[CITYPRICETWO] ) : 0;
+        $kistprice = isset( $_REQUEST[KIST] ) ? sanitize_text_field( $_REQUEST[KIST] ) : 0;
 
         $alldata = $_REQUEST;
         $price_field = [];
@@ -117,7 +125,8 @@ function callback_td_from_checkout() {
 
         $taslim_amount = 0;
         $taslim_amount += (float) $citypriceOne;
-        $taslim_amount += (float) $citypriceTwo;        
+        $taslim_amount += (float) $citypriceTwo;
+        $taslim_amount += (float) $kistprice;   
         if (count($price_field) != 0) {
             foreach ($price_field as $value) {
                 $taslim_amount += ($value['price'])? $value['price'] : 0;
@@ -191,7 +200,23 @@ function render_taslim_wc_order_details( $post ) {
     $ordermetas = get_post_meta( $post->ID );
     $orderdetial = (isset($ordermetas['orderdetial'])) ? unserialize($ordermetas['orderdetial'][0]) : [];
     $orderprices = (isset($ordermetas['orderprices'])) ? unserialize($ordermetas['orderprices'][0]) : [];
-    echo tdgetorder_details($orderdetial, $orderprices);
+
+
+    $newprice_field = [];
+
+    foreach ($orderprices as $key => $price_fields) {
+        $newprice_field[$price_fields['name']][] = $price_fields;
+    }
+
+    // echo "<pre>";
+    // print_r( $orderprices );
+    // echo "</pre>";
+
+    //  echo tdgetorder_details($orderdetial, $orderprices);
+
+
+
+     echo td_admin_generateinvoice($newprice_field, $orderdetial);
 
     // echo "<pre>";
     // print_r( $orderdetial );
@@ -200,6 +225,9 @@ function render_taslim_wc_order_details( $post ) {
 
 ?>
 <style>
+.tdinvoice_preview table {
+    width: 100%;
+}
 .taslim-resource {}
 .taslim-resource h2 {
     font-size: 24px !important;
@@ -210,6 +238,48 @@ function render_taslim_wc_order_details( $post ) {
 .taslim-resource p span{
     font-weight:700;
 }
+
+div#tdinvoice {
+  /* max-width: 900px; */
+  margin-top: 15px;
+}
+
+.tdw-50 {
+  width: 50%;
+}
+.tdinvoice table th {
+  font-size: 14px;
+}
+.tdinvoice_preview {
+  background: #fff;
+  padding: 15px;
+  font-size: 16px;
+  border: 10px solid #222;
+}
+ul.tdinvoice-topinfo {
+  list-style: none;
+  padding-left: 15px;
+}
+
+ul.tdinvoice-topinfo li span {
+  width: 200px;
+  display: inline-block;
+}
+
+h4.tdinvoice_heading {
+  border-bottom: 1px solid #aaa;
+  font-size: 18px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+.tdmt-15 {
+  margin-top:15px;
+}
+.tdinvoice table, .tdinvoice table td, .tdinvoice table th {
+  border: 0px;
+  padding: 0px;
+}
+
 </style>
 <div class="taslim-resource">
 <h2>Custom resource</h2>
@@ -231,35 +301,6 @@ foreach ($orderdetial as $key => $value) {
     }
 }
 
-
-// foreach ($orderdetial as $key => $value) {
-
-//     $field_details = get_tdresources($value, $key);
-//     if (!empty($field_details)) {
-//         $td_details[] = $field_details;
-//     }
-// }
-
-// if(is_array($td_details) && count($td_details) !=0){
-//     foreach ($td_details as $td_detail) {
-//         if(isset($td_detail['type']) && isset($td_detail['key']) && $td_detail['type'] == 'image' ){
-//             $tdimg = wp_get_attachment_image_src( $td_detail['key'], 'full' );
-//             $imgurl = (isset($tdimg[0]))? $tdimg[0] : '';
-//             echo '<p><span>'.$td_detail['label'].'</span> : <a href="'.$imgurl.'">'.$imgurl.'</a></p>';
-//         }
-
-//     }
-// }
-// if(is_array($td_details) && count($td_details) !=0){
-//     foreach ($td_details as $td_detail) {
-//         if(isset($td_detail['type']) && isset($td_detail['key']) && $td_detail['type'] == 'image_price' ){
-//             $tdimg = wp_get_attachment_image_src( $td_detail['key'], 'full' );
-//             $imgurl = (isset($tdimg[0]))? $tdimg[0] : '';
-//             echo '<p><span>'.$td_detail['label'].'</span> : <a href="'.$imgurl.'">'.$imgurl.'</a></p>';
-//         }
-
-//     }
-// }
 ?>
 </div>
 <?php };

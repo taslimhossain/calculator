@@ -228,6 +228,11 @@ function taslim_tdfuneral_form( $atts ) {
 	echo '<input type="submit" name="submit" id="checkout-button" value="Doorgaan">';
 	echo '</div>';
 	echo '</form>';
+	echo '<div class="tdinvoice" id="tdinvoice">';
+	?>	
+
+	<?php
+	echo '</div>';
 
 	return ob_get_clean();
 }
